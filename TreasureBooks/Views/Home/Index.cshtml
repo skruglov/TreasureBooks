@@ -14,9 +14,9 @@
                 <ul class="list-unstyled" data-bind="foreach: books">
                     <li>
                         <strong><span data-bind="text: AuthorName"></span></strong>: <span data-bind="text: Title"></span>
-                        <small><a href="#" data-bind="click: $parent.getBookDetail">Details</a></small>
+                        <small><a href="#" data-bind="visible: !$parent.editing(), click: $parent.getBookDetail">Details</a></small>
                         <small><a href="#" data-bind="visible: $parent.isAdmin, click: $parent.getBookDetailForEdit">Edit</a></small>
-                        <small><a href="#" class="text-danger" data-bind="visible: $parent.isAdmin, click: $parent.deleteBook">Delete</a></small>
+                        <small><a href="#" class="text-danger" data-bind="visible: $parent.isAdmin() && !$parent.editing(), click: $parent.deleteBook">Delete</a></small>
                     </li>
                 </ul>
             </div>
